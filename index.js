@@ -79,6 +79,10 @@ function start(client) {
       console.log(`Normalized body: ${normalizedBody}`);
       console.log(`Normalized converted body: ${normalizedConvertedBody}`);
 
+      // Send Received message
+      logMessage("Received message: ");
+      logMessage(body)
+
       // Find the file data based on the received message
       const data = findFileData(normalizedBody, normalizedConvertedBody);
 
@@ -95,6 +99,7 @@ function start(client) {
         sendLogs(client);
       } else {
         console.log("No matching data found.");
+        sendLogs(client);
       }
     } catch (error) {
       handleError(error);
